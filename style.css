@@ -1,0 +1,9 @@
+li {
+    color: red;
+}
+footer {
+    bottom: 0;
+    position: absolute;
+    width: 50%;
+    ;
+}
