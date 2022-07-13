@@ -1,54 +1,55 @@
-const allEmployees=[];
-//for(let i=0; i<allEmployees.length;i++);
 
-console.log(allEmployees);
+const allEmployee= [];
 
-function Employeeinfo(employeeId, fullName, department, level, imageUrl) {
-    this.employeeId = employeeId;
-    this.fullName = fullName;
-    this.department = department;
-    this.level = level;
-    this.imageUrl = imageUrl;
-    allEmployees.push(this)
+function Employee(EmployeeID,FullName,Department,Level,Image){
+ 
+  this.EmployeeID=EmployeeID
+  
+  this.FullName=FullName
+    
+  this.Department=Department
+
+  this.Level=Level
+
+  this.Image=Image
+
+  
+ 
+  allEmployee.push(this);
+
+  function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min};
+
+}
+Employee.prototype.Salary=function(){
+
+    (this.Level == "Senior")?this.Salary=getRndInteger(1500,2000):
+    (this.Level==="Mid-Senior")?this.Salary=getRndInteger(1000,1500):
+     this.Salary=getRndInteger(500,1000);
+    
+     allEmployee.push(this.Salary);
+
 }
 
-const ghaziSamer = new Employeeinfo (1000, "Ghazi Samer", "Administration", "Senior  ");
-const lanaAli = new Employeeinfo (1001, "Lana Ali", "Finance", "Senior  ");
-const tamaraAyoub = new Employeeinfo (1002, "Tamara Ayoub", "Marketing", "Senior  ");
-const safiWalid = new Employeeinfo (1003, "Safi Walid", "Administration", "Mid-Senior  ");
-const omarZaid = new Employeeinfo (1004, "Omar Zaid", "Development", "Senior  ");
-const ranaSaleh = new Employeeinfo (1005, "Rana Saleh", "Development", "Junior  ");
-const hadiAhmad = new Employeeinfo (1006, "Hadi Ahmad", "Finance", "Mid-Senior  ");
-console.log(allEmployees);
+Employee.prototype.Nameandsalary=function(){
+    console.log(`${this.FullName}; ${this.Salary} jd \n`);
+    document.write(`<p>${this.FullName}; ${this.Salary} jd\n</p>`);
 
-
-Employeeinfo.prototype.salary= function() {
-
-    if (this.level == "senior") {
-        this.salary = Math.floor((Math.random() * 500) + 1500); 
-    allEmployees.push(this.salary)
-
-    } else if (this.level.toLowerCase() == "mid-senior") {
-        this.salary = Math.floor((Math.random() * 500) + 1000); 
-     allEmployees.push(this.salary)
-
-    } else if (this.level.toLowerCase() == "junior") {
-        this.salary = Math.floor((Math.random() * 500) + 500); 
-     allEmployees.push(this.salary)
-
-}}
+}
 
 
 
+const GhaziSamer=new Employee(1000,"GhaziSamer","Administration","Senior","image/Ghazi.jpg")
+const GhazLana=new Employee(1001,"LanaAli","Finance","Senior","image/Ghazi.jpg")
+const TamaraAyoub=new Employee(1002,"TamaraAyoub","Marketing","Senior","image/Ghazi.jpg")
+const SafiWalid=new Employee(1003,"SafiWalid","Administration","Mid-Senior","image/Ghazi.jpg")
+const OmarZaid=new Employee(1004,"OmarZaid","Development","Senior","image/Ghazi.jpg")
+const RanaSaleh=new Employee(1005,"RanaSaleh","Development","Junior","image/Ghazi.jpg")
+const HadiAhmad=new Employee(1006,"HadiAhmad","Finance","Mid-Senior","image/Ghazi.jpg")
 
-Employeeinfo.prototype.netSalary= function () {
+for(let i=0;i<allEmployee.length;i++){
+    allEmployee[i].Nameandsalary();
+   
+    allEmployee[i].Salary();
 
-    this.netSalary = Math.floor(this.salary - (this.salary / 1.75));
-    allEmployees.push(this.netSalary);
-       
-} 
-
-for (let i = 0; i <= allEmployees.length; i++) {
-    allEmployees[i].salary();
-    allEmployees[i].netSalary();
-   }
+}
