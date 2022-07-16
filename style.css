@@ -1,12 +1,27 @@
+.fromjs {
+    color: tomato;
+    background-color: white;
+    
+    
 
-h1 {
-    color: red;
+
+}
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+ }
+  
+ #img {
+    width: 5%;
+    height: 5%;
+}
+img src {
+
+ width:100%
 }
 
-
-footer {
-    bottom: 0;
-    position: absolute;
-    width: 50%;
-    ;
+p{
+    text-align: center;
+    size: 20ch ;
 }
